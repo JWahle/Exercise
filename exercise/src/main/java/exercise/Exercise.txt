@@ -12,6 +12,12 @@ The "Java SE" Package is sufficient.
 Import the Project:
 Menu > Team > Git > Clone...
 
+Commit your changes to your local copy:
+Right click project > Git > Commit...
+
+Push your changes to your Fork on GitHub:
+Right click project > Git > Remote > Push to upstream
+
 Clean and Build:
 If there are any compile errors, or if anything strange happens, right click the project and click "Clean and Build".
 This builds the whole project from scratch.
