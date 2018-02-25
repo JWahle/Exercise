@@ -6,8 +6,9 @@ import java.io.StringReader;
 public class Words {
 
     private final Reader input;
-
+   
     public Words(Reader input) {
+       
         this.input = input;
     }
 
@@ -16,7 +17,8 @@ public class Words {
     }
 
     public String asString() {
-        return "";
+        return this.input.toString();
+        
     }
 
 }
