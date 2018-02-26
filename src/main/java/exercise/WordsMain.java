@@ -11,10 +11,10 @@ package exercise;
  */
 public class WordsMain {
     public static void main (String args[]){
-   // System.out.println("check yes");
-        String abc;
-        abc = new Words("abcdef").asString();
-        System.out.println("check yes"+abc);
+      //  String pass = "a*f-6@5+6*a\tj";
+        String pass = "first line\nsecond line\nthird line";
+        System.out.println("Before call: "+ pass);
+        System.out.println("\nafter call: "+ new Words(pass).asString());
         
         
     }
