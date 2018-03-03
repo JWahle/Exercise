@@ -1,9 +1,10 @@
 # Exercise
 
 GitHub:  
-For your solution fork this repo and create a pull request  
+For your solution fork this repo and create a pull request
 https://help.github.com/articles/fork-a-repo/  
-https://help.github.com/articles/creating-a-pull-request-from-a-fork/  
+https://help.github.com/articles/creating-a-pull-request-from-a-fork/
+To update the pull request during review, just push again to your github fork.
 
 ======================================================
 
