@@ -34,13 +34,13 @@ Menu > Tools > Options > KeyMap > Enter "Test" into "Search:" Textfield
 ======================================================
 
 Exercise:  
-Implement the following requirements and write (unit-)tests to demonstrate that your solution works.  
+Implement the following requirements and write (unit-)tests to check that your solution works.  
 
 - Implement Words.asString() so that it returns all the words found in the Reader separated by spaces:  
 new Words("first line\nsecond line").asString() == "first line second line"  
-HINT: You can implement it as you like, but BufferedReader and Stream should provide everything you need  
+HINT: You can implement it as you like, but java.io.BufferedReader and java.util.stream.Stream should provide everything you need  
 
-- Enhance the "Words" class so that it can also read text files? (character encoding is irrelevant)  
+- Enhance the "Words" class so that it can also read text files(java.io.File)? (character encoding is irrelevant)  
 HINT: there is a subclass of Reader that is helpful here  
 
 - Redesign (e.g. add methods or change into interface) the "Words" class so that you can control
