@@ -43,7 +43,7 @@ HINT: You can implement it as you like, but java.io.BufferedReader and java.util
 - Enhance the "Words" class so that it can also read text files(java.io.File)? (character encoding is irrelevant)  
 HINT: there is a subclass of Reader that is helpful here  
 
-- Redesign (e.g. add methods or change into interface) the "Words" class so that you can control
+- Redesign (e.g. add methods or change into interface) the "Words" class so that a caller can control
     - how words are discovered:  
         e.g. transform "one-two#three" to "one two three"  
     - how words are returned:  
