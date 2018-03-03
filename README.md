@@ -45,6 +45,8 @@ HINT: there is a subclass of Reader that is helpful here
 
 - Redesign (e.g. add methods or change into interface) the "Words" class so that a caller can control
     - how words are discovered:  
-        e.g. transform "one-two#three" to "one two three"  
+        e.g. transform "one-two#three" to "one two three"
+        or "split every line at the 10th character"
     - how words are returned:  
         e.g. transform "one two three" to "one-two-three"
+        or "add a # only after every second word"
