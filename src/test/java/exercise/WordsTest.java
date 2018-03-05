@@ -1,70 +1,47 @@
 package exercise;
 
+import java.io.File;
 import static org.junit.Assert.*;
 import org.junit.Test;
-import java.io.Reader;
-import java.io.FileReader;
-import java.io.FileNotFoundException;
 
-public class WordsTest {
-//    @Test
-//    public void thisIsJustAFailingExampleTest() {
-//        assertTrue(
-//                !new Words("test words").asString().isEmpty()
-//        );
-//    }    
-    @Test //for string input
-    public void testasString1(){
-        String in="first line\nsecond line";
-        Words testInst=new Words(in);        
-        String out=testInst.asString();
-        String expResult="first line second line";
-        assertEquals(expResult,out);
+public class WordsTest {  
+    @Test
+    public void testString3Lines_Default(){
+        assertEquals("first line second line third line",new Words("first line\nsecond line\nthird line").asString());
     }
-    @Test //for string input with special characters
-    public void testasString12(){
-        String in="first*&%($) line\nsecond@$%## line";
-        Words testInst=new Words(in);        
-        String out=testInst.asString();
-        String expResult="first line second line";
-        assertEquals(expResult,out);
+    @Test
+    public void testString3Lines_Default_WithSep(){
+        assertEquals("first#line#second#line#third#line",new Words("first@$@line\nsecond line\nthird@line","#").asString());
     }
-    @Test //for file input
-    public void testasString2(){
-        String in="myfile.txt";//input file
-        Reader reader = null;
-        try{
-            reader = new FileReader(in);
-        }catch (FileNotFoundException e){
-            System.out.println(e);
-        }
-        Words testInst=new Words(reader);
-        String out=testInst.asString();
-        String expResult="this is the content from file";
-        assertEquals(expResult,out);
+    @Test
+    public void testString3Lines_WithSepNumCharsNumWords_split(){
+        assertEquals("12345 6789#22345 6789",
+                new Words("123456789\n223456789",5,2,"#").asString());
     }
-    @Test //customize the character between words with space
-    public void testasString31(){
-        String in="one-two#three";
-        Words testInst=new Words(in," ");        
-        String out=testInst.asString();
-        String expResult="one two three";
-        assertEquals(expResult,out);
+     @Test
+    public void testString3Lines_WithSepNumCharsNumWords_split2(){
+        assertEquals("12345 6789 22345*6789",
+                new Words("123456789\n223456789",5,3,"*").asString());
     }
-    @Test //customize the character between words with "-"
-    public void testasString32(){
-        String in="one two three";
-        Words testInst=new Words(in,"-");        
-        String out=testInst.asString();
-        String expResult="one-two-three";
-        assertEquals(expResult,out);
+    @Test
+    public void testString3Lines_fullInput_3(){
+        assertEquals("1234 5678 9@2234 5678 9",
+                new Words("123456789\n223456789",4,3,"@").asString());
     }
-     @Test //customize the character between words with "*"
-    public void testasString33(){
-        String in="one$*#^*&#^ two )*)*(&three";
-        Words testInst=new Words(in,"*");        
-        String out=testInst.asString();
-        String expResult="one*two*three";
-        assertEquals(expResult,out);
+    @Test
+    public void testFile_Default(){
+        File in = new File("myfile.txt");
+        assertEquals("one two three four five this is a new line",
+                new Words(in).asString());
+    }
+    @Test
+    public void testFile(){
+        assertEquals("one#two#three#four#five#this#is#a#new#line",
+                new Words(new File("myfile.txt"),"#").asString());
+    }
+    @Test
+    public void testFile_fullInput(){
+        assertEquals("one two th ree four f@ive this is a @new line",
+                new Words(new File("myfile.txt"),10,2,"@").asString());
     }
 }
